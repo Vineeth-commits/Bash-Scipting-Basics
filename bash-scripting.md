@@ -62,8 +62,7 @@ ex:
 	#Modification: .....
 ```
 
-# Variables
----
+## Variables
 * A variable is a temporary store for a piece of information. There are two actions we may perform for variables:
 	1. Setting a value for a variable.
 	2. Reading the value for a variable.
@@ -121,8 +120,7 @@ ex:
 	```
 	Note: Exporting variables is a one way process. The original process may pass variables over to the new process but anything that process does with the copy of the variables has no impact on the original variables.
 
-# User Input
----
+## User Input
 * To take input from the user we use read command
 	```bash
 	read var
@@ -147,8 +145,7 @@ ex:
 	terminal: cat inputfile | ./script.bash
 	```
 
-# Arithmetic
----
+## Arithmetic
 * Let is a builtin function of Bash that allows us to do simple arithmetic.
 	```bash
 	let <arithmetic expression>
@@ -180,9 +177,9 @@ ex:
 	#Output:4
 	```
 
-# Conditional Statements
+## Conditional Statements
 ---
-## Basic If statement
+#### Basic If statement
 The set of commands under if block will be executed if the condition is true.
 Syntax:
 ```bash
@@ -191,7 +188,7 @@ Syntax:
 		<commands>
 	fi
 ```
-## Test operators
+#### Test operators
 | Flags or Expressions| statement|
 |---------------------|----------|
 |! EXPRESSION|The EXPRESSION is false|
@@ -211,9 +208,8 @@ Syntax:
 Note:
 * = is slightly different to -eq. [ 001 = 1 ] will return false as = does a string comparison (ie. character for character the same) whereas -eq doesa  numerical comparison meaning [ 001 -eq 1 ] will return true.
 * When we refer to FILE above we are actually meaning a path. Remember that a path may be absolute or relative and may refer to a file or a directory.
-
 Remember: There is no boolean in bash. 0 means TRUE (or success). 1 = FALSE (or failure).
-## Nested If statements
+#### Nested If statements
 An if statement an be nested in an if statement. Indenting makes it easier to read especially if using nested.
 Syntax:
 ```bash
@@ -225,7 +221,7 @@ Syntax:
 		fi
 	fi
 ```
-## If Else statement
+#### If Else statement
 If the test condition is not satisfied then an alternate set of commands will be executed.
 Syntax:
 ```bash
@@ -236,7 +232,7 @@ Syntax:
 		<other commands>
 	fi
 ```
-## If Elif Else
+#### If Elif Else
 When you have series of conditions to execute then this condtional statement can be used
 Syntax:
 ```bash
@@ -250,7 +246,7 @@ Syntax:
 		<other commands>
 	fi
 ```
-## Boolean Operations
+#### Boolean Operations
 If a multiple set of conditions are used, then we can use the following
 * and - &&
 * or - ||
@@ -262,7 +258,7 @@ ex:
 		echo This file is useful.
 	fi
 ```
-## Case Statements
+#### Case Statements
 Syntax:
 ```bash
 	case $<variable> in <pattern 1>)<commands>;;
@@ -272,9 +268,9 @@ Syntax:
 	esac
 ```
 
-# Looping Statements
+## Looping Statements
 ---
-## While Loop
+#### While Loop
 The loop runs until the condition becomes false
 Syntax:
 ```bash
@@ -283,7 +279,7 @@ Syntax:
 		<commands>
 	done
 ```
-## Until Loop
+#### Until Loop
 This is similar to while loop but the difference is that it will execute the commands within it until the test becomes true.
 Syntax:
 ```bash
@@ -301,7 +297,7 @@ Ex:
 		((counter++))
 	done
 ```
-## For Loops
+#### For Loops
 Syntax:
 ```bash
 	for var in <list>
@@ -339,11 +335,11 @@ Ex:
 	2
 	0
 ```
-## Break
+#### Break
 The break statement tells Bash to leave the loop straight away. It may be that there is a normal situation that should cause the loop to end but there are also exceptional situations in which it should end as well.
-## Continue
+#### Continue
 The continue statement tells Bash to stop running through this iteration of the loop and begin the next iteration.
-## Select
+#### Select
 The select mechanism allows you to create a simple menu system.
 Syntax:
 ```bash
@@ -365,9 +361,9 @@ Syntax:
 ```
 Note: You may change the system variable PS3 to change the prompt that is displayed.
 
-# Functions
+## Functions
 ---
-## Syntax: 
+#### Syntax: 
 ```bash
 	function_name () {
 		<commands>
@@ -379,7 +375,7 @@ Note: You may change the system variable PS3 to change the prompt that is displa
 	print_something
 	print_something
 ```
-## Passing parameters
+#### Passing parameters
 Ex:
 ```bash
 	print_something () {
@@ -388,7 +384,7 @@ Ex:
 	print_something Mars
 	print_something Jupiter
 ```
-## return values
+#### return values
 ```bash
 #Ex:
 	print_something () {
@@ -405,6 +401,6 @@ Ex:
 	num_lines=$( lines_in_file $1 )
 	echo The file $1 has $num_lines lines in it.
 ```
-## Variable Scope
+#### Variable Scope
 By default a variable is global. One can make the variable local to the function
 >local var_name=<var_value>
