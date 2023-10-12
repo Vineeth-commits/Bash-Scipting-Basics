@@ -1,67 +1,71 @@
-1.0 Introduction to bash scripting
-	1.1 KERNAL 
-		It is a interface between the hardware and software. It is a program which takes commands from the shell. The shell and kernal together can be refered to as the operating system.
-		user--->application--->shell--->kernal--->hardware
-	1.2 SHELL 
-		It is a container which holds information. It acts like an interface between the users and kernal.
-		Types of shells
-		gnome
-		kde
-		xfce
-		sh
-		bash - born again shell(sh)
-		zsh
-		csh and tcsh
-		ksh (korn shell)
-	1.3 Finding your shell
-		Use the below command to know what shell are you running currently
-		>echo $0
-		The below command outputs all the available shells in your OS
-		>cat /etc/shells
-		To change the shell just type the shell in the terminal
-	1.4 Shell scripting
-		A program to run a set of instructions or commands all together.
-		To run a shell script, we need to give exectuable permissions
-		>chmod 755 script.bash or >chmod a+w script
-		The above command gives exectuable permissions to all users
-		If running sensitive scripts appropriate permissions must be given
-		After the permissions, we can run command with the absolute path or the relative path
-		>~/scripts/xyz.bash # absolute path
-		>./xyz.bash # relative path where the single dot specifies the current directory.
-		The script can also be runned like the following
-		> bash xyz.bash
-	1.5 Scripting naming convention
-		Step 1: create a directory for scripts 
-		Step 2: name the script based on the function
-		Step 3: Create an extenstion with a shell name so it could be identified if you write different script other than bash
-		Note: Linux is an extensionless system so a script doesn't necessarily have to have this characteristic in order to work.
-	1.6 Script format
-		Step 1: Define a shell (#!/bin/bash)
-				The hash exclamation mark ( #! ) character sequence is referred to as the Shebang. Following it is the path to the interpreter (or program) that should be used to run (or interpret) the rest of the lines in the text file. The shebang must be on the very first line of the file (line 2 won't do, even if the first line is blank). There must also be no spaces before the # or between the ! and the path to the interpreter.
-		Step 2: use comments to specify a statement (# comments)
-		Step 3: Define variables at the start
-		Step 4: commands and statements
-		ex:
-			#!/bin/bash
-			#Author: ....
-			#Purpose: ....
-			#Date: ....
-			#Modification: .....
+## 1.0 Introduction to bash scripting
+### 1.1 KERNAL 
+It is a interface between the hardware and software. It is a program which takes commands from the shell. The shell and kernal together can be refered to as the operating system.
+user--->application--->shell--->kernal--->hardware
+### 1.2 SHELL 
+It is a container which holds information. It acts like an interface between the users and kernal.
+Types of shells
+* gnome
+* kde
+* xfce
+* sh
+* bash - born again shell(sh)
+* zsh
+* csh and tcsh
+* ksh (korn shell)
+### 1.3 Finding your shell
+Use the below command to know what shell are you running currently
+>echo $0
+The below command outputs all the available shells in your OS
+>cat /etc/shells
+To change the shell just type the shell in the terminal
+
+### 1.4 Shell scripting
+A program to run a set of instructions or commands all together.
+To run a shell script, we need to give exectuable permissions
+>chmod 755 script.bash or >chmod a+w script
+The above command gives exectuable permissions to all users
+If running sensitive scripts appropriate permissions must be given
+After the permissions, we can run command with the absolute path or the relative path
+>~/scripts/xyz.bash # absolute path
+>./xyz.bash # relative path where the single dot specifies the current directory.
+The script can also be runned like the following
+> bash xyz.bash
+### 1.5 Scripting naming convention
+Step 1: create a directory for scripts 
+Step 2: name the script based on the function
+Step 3: Create an extenstion with a shell name so it could be identified if you write different script other than bash
+Note: Linux is an extensionless system so a script doesn't necessarily have to have this characteristic in order to work.
+
+### 1.6 Script format
+Step 1: Define a shell (#!/bin/bash)
+The hash exclamation mark ( #! ) character sequence is referred to as the Shebang. Following it is the path to the interpreter (or program) that should be used to run (or interpret) the rest of the lines in the text file. The shebang must be on the very first line of the file (line 2 won't do, even if the first line is blank). There must also be no spaces before the # or between the ! and the path to the interpreter.
+Step 2: use comments to specify a statement (# comments)
+Step 3: Define variables at the start
+Step 4: commands and statements
+```bash
+ex:
+#!/bin/bash
+#Author: ....
+#Purpose: ....
+#Date: ....
+#Modification: .....
+```
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-2.0 Variables
-	2.1 A variable is a temporary store for a piece of information. There are two actions we may perform for variables:
-		a.Setting a value for a variable.
-		b.Reading the value for a variable.
-	2.2 Two things to note while defining variables
-		a.When referring to or reading a variable we place a $ sign before the variable name.
-		b.When setting a variable we leave out the $ sign.
-	2.3 [variable_name]=[command]
-		>d=date
-		>c='cal 2020'
-		To run the variable use dollar sign
-		>$[variable_name]
-	2.4 Some special variables
+## 2.0 Variables
+### 2.1 A variable is a temporary store for a piece of information. There are two actions we may perform for variables:
+a.Setting a value for a variable.
+b.Reading the value for a variable.
+### 2.2 Two things to note while defining variables
+a.When referring to or reading a variable we place a $ sign before the variable name.
+b.When setting a variable we leave out the $ sign.
+### 2.3 [variable_name]=[command]
+>d=date
+>c='cal 2020'
+To run the variable use dollar sign
+>$[variable_name]
+### 2.4 Some special variables
 		$0 - The name of the Bash script.
 		$1 - $9 - The first 9 arguments to the Bash script. (As mentioned above.)
 		$# - How many arguments were passed to the Bash script.
@@ -74,7 +78,7 @@
 		$RANDOM - Returns a different random number each time is it referred to.
 		$LINENO - Returns the current line number in the Bash script
 		Note: If you type the command env on the command line you will see a listing of other variables which you may also refer to.
-	2.5 The variables can only store a single word. To store complex values use single or double quotes.
+### 2.5 The variables can only store a single word. To store complex values use single or double quotes.
 		a.Single quotes will treat every character literally.
 		b.Double quotes will allow you to do substitution (that is include variables within the setting of the value).	
 		ex:
